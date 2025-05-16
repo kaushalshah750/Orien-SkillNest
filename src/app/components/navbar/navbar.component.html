@@ -1,44 +1,55 @@
 <nav class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
   <div class="container mx-auto flex justify-between items-center px-4 py-4">
+
     <!-- Logo -->
-    <a href="#home" class="text-xl font-extrabold tracking-wide text-primary">
-      <img class="w-20" src="../../../assets/images/logo.png" alt="">
+    <a href="#home" aria-label="SkillNest Home">
+      <img src="../../../assets/images/logo.png" class="w-24" alt="SkillNest logo" />
     </a>
 
-    <!-- Hamburger Button -->
+    <!-- Hamburger Icon -->
     <button (click)="toggleMenu()" class="sm:hidden text-primary focus:outline-none">
-      <svg *ngIf="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-           viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-      <svg *ngIf="isMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-           viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M6 18L18 6M6 6l12 12" />
+      <svg *ngIf="!isMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
     </button>
 
-    <!-- Desktop Links -->
+    <!-- Desktop Nav -->
     <ul class="hidden sm:flex space-x-6 text-sm text-darkText font-medium">
-      <li><a href="#home" class="hover:underline underline-offset-4 hover:text-secondary transition">Home</a></li>
-      <li><a href="#why-us" class="hover:underline underline-offset-4 hover:text-secondary transition">Why Us</a></li>
-      <li><a href="#courses" class="hover:underline underline-offset-4 hover:text-secondary transition">Courses</a></li>
-      <li><a href="#testimonials" class="hover:underline underline-offset-4 hover:text-secondary transition">Testimonials</a></li>
-      <li><a href="#about" class="hover:underline underline-offset-4 hover:text-secondary transition">About</a></li>
-      <li><a href="#contact" class="hover:underline underline-offset-4 hover:text-secondary transition">Contact</a></li>
-  </ul>
+      <li><a href="#home" class="hover:text-accent transition">Home</a></li>
+      <li><a href="#why-us" class="hover:text-accent transition">Why Us</a></li>
+      <li><a href="#courses" class="hover:text-accent transition">Courses</a></li>
+      <li><a href="#testimonials" class="hover:text-accent transition">Testimonials</a></li>
+      <li><a href="#about" class="hover:text-accent transition">About</a></li>
+      <li><a href="#contact" class="hover:text-accent transition">Contact</a></li>
+    </ul>
   </div>
 
-  <!-- Mobile Dropdown Menu -->
-  <div *ngIf="isMenuOpen" class="sm:hidden bg-white border-t border-gray-100 px-4 py-4 shadow-md">
-    <ul class="space-y-4 text-sm text-darkText font-medium">
-      <li><a href="#home" class="hover:underline underline-offset-4 hover:text-secondary transition" (click)="toggleMenu()">Home</a></li>
-      <li><a href="#why-us" class="hover:underline underline-offset-4 hover:text-secondary transition" (click)="toggleMenu()">Why Us</a></li>
-      <li><a href="#courses" class="hover:underline underline-offset-4 hover:text-secondary transition" (click)="toggleMenu()">Courses</a></li>
-      <li><a href="#testimonials" class="hover:underline underline-offset-4 hover:text-secondary transition" (click)="toggleMenu()">Testimonials</a></li>
-      <li><a href="#about" class="hover:underline underline-offset-4 hover:text-secondary transition" (click)="toggleMenu()">About</a></li>
-      <li><a href="#contact" class="hover:underline underline-offset-4 hover:text-secondary transition" (click)="toggleMenu()">Contact</a></li>
+  <!-- Mobile Fullscreen Menu -->
+  <div *ngIf="isMenuOpen" class="fixed inset-0 bg-white/95 backdrop-blur-lg z-40 px-6 pt-8 sm:hidden animate-fade-in">
+    
+    <!-- Close Button -->
+    <div class="flex justify-end">
+      <button aria-label="Toggle navigation menu" (click)="toggleMenu()" class="text-primary focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Nav Items -->
+    <ul class="mt-10 space-y-6 text-xl font-semibold text-center text-primary">
+      <li><a href="#home" (click)="toggleMenu()" class="flex items-center justify-center gap-2 hover:text-accent transition">
+        Home</a></li>
+      <li><a href="#why-us" (click)="toggleMenu()" class="flex items-center justify-center gap-2 hover:text-accent transition">
+        Why Us</a></li>
+      <li><a href="#courses" (click)="toggleMenu()" class="flex items-center justify-center gap-2 hover:text-accent transition">
+        Courses</a></li>
+      <li><a href="#testimonials" (click)="toggleMenu()" class="flex items-center justify-center gap-2 hover:text-accent transition">
+        Testimonials</a></li>
+      <li><a href="#about" (click)="toggleMenu()" class="flex items-center justify-center gap-2 hover:text-accent transition">
+        About</a></li>
+      <li><a href="#contact" (click)="toggleMenu()" class="flex items-center justify-center gap-2 hover:text-accent transition">
+        Contact</a></li>
     </ul>
   </div>
 </nav>
